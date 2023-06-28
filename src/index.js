@@ -1,8 +1,20 @@
-import ReactDOM from 'react-dom';
 import React from 'react';
+import { render } from 'react-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Home from './pages/home'
 
-const App = () => {
- return <h1>trammy!</h1>;
+import './assets/home.css'
+
+class App extends React.Component {
+    render () {
+        return (
+            <Router>
+                <Routes>
+                    <Route exact path={"/"} element={ <Home />}/>
+                </Routes>
+            </Router>
+        );
+    }
 }
 
-ReactDOM.render(<App />, document.getElementById('app'));
+render (<App />, window.document.getElementById ('app'));
