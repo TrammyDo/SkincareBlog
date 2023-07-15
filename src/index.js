@@ -1,20 +1,26 @@
-import React from 'react';
-import { render } from 'react-dom';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './pages/home'
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Home from './views/home.js'
+import Login from './views/login.js'
+import NoPage from './views/nopage.js';
+import Registration from './views/registration.js';
 
 import './assets/home.css'
 
-class App extends React.Component {
-    render () {
+export default function App() {
         return (
-            <Router>
+            <BrowserRouter>
                 <Routes>
-                    <Route exact path={"/"} element={ <Home />}/>
+                    <Route exact path={ "/" } element={ <Home /> } />
+                    <Route path="/login" element={<Login />} />
+                    <Route path="*" element={<NoPage />} />
+                    <Route path="/registration" element={<Registration />} />
+
                 </Routes>
-            </Router>
-        );
-    }
+            </BrowserRouter>
+    );
 }
 
-render (<App />, window.document.getElementById ('app'));
+const root = ReactDOM.createRoot(document.getElementById('app'));
+root.render(<App/>)
