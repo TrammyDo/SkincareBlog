@@ -13,8 +13,15 @@ app1.use(cors(corsOptions));
 app1.use (express.json())
 app1.use (express.urlencoded ({extended: false}))
 
-app1.post("/registration", async (req, res) => {  
-  await pool.query('INSERT INTO users (email, pass) VALUES ($1, $2)', [req.body[0], req.body[1]])
+app1.post("/registration", async (req, res) => {
+  try {
+    console.log(req);
+    await pool.query('INSERT INTO users (username, email, password) VALUES ($1, $2, $3)', [req.body[0], req.body[1], req.body[2]])
+  }  
+  catch (e) {
+    console.log(e)
+    res.json ({accountCreated : false})
+  }
 })
 
 app1.post("/login", async (req, res) => { 

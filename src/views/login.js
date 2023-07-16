@@ -1,9 +1,9 @@
-import React , { useState} from 'react';
+import React , { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [pass, setPass] = useState('');
-    let correctUser = true;
 
     const handleSubmit = async (values) => {
         values.preventDefault();
@@ -20,10 +20,7 @@ const Login = () => {
             if (!resJson.value) {
                 window.alert ("Incorrect email or password. Please try again.")
             }
-            console.log (resJson)
         })
-
-
     }
     
     return (
@@ -34,6 +31,7 @@ const Login = () => {
             <label htmlFor="password">Password</label>
             <input value={pass} onChange={(values) => setPass(values.target.value)} type="password" placeholder="" id="password" name="password"></input>
             <button type="submit">Create</button>
+            <Link to="/registration" >Don't have an account? Click here to make one!</Link>
         </form>
     );
 }

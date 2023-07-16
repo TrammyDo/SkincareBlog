@@ -5,7 +5,7 @@ import Home from './views/home.js'
 import Login from './views/login.js'
 import NoPage from './views/nopage.js';
 import Registration from './views/registration.js';
-
+import PostEntry from './views/postEntry.js';
 import './assets/home.css'
 
 export default function App() {
@@ -13,10 +13,10 @@ export default function App() {
             <BrowserRouter>
                 <Routes>
                     <Route exact path={ "/" } element={ <Home /> } />
-                    <Route path="/login" element={<Login />} />
-                    <Route path="*" element={<NoPage />} />
-                    <Route path="/registration" element={<Registration />} />
-
+                    <Route path="/login" element={ <Login /> } />
+                    <Route path="*" element={ <NoPage /> } />
+                    <Route path="/registration" element={ <Registration /> } />
+                    <Route path="/postEntry" element={ <PostEntry /> } />
                 </Routes>
             </BrowserRouter>
     );
