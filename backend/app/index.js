@@ -15,7 +15,6 @@ app1.use (express.urlencoded ({extended: false}))
 
 app1.post("/registration", async (req, res) => {
   try {
-    console.log(req);
     await pool.query('INSERT INTO users (username, email, password) VALUES ($1, $2, $3)', [req.body[0], req.body[1], req.body[2]])
   }  
   catch (e) {
@@ -24,9 +23,23 @@ app1.post("/registration", async (req, res) => {
   }
 })
 
+app1.get("/getPosts", async (req, res) => {
+  try {
+    let results = []
+
+    results = await pool.query('SELECT * FROM posts')
+    
+    console.log(results.rows)
+    res.send ({posts : results.rows})
+  }  
+  catch (e) {
+    console.log(e)
+  }
+})
+
 app1.post("/login", async (req, res) => { 
   try {
-    let results = await pool.query('SELECT * FROM users WHERE email = $1 AND pass = $2', [req.body[0], req.body[1]])
+    let results = await pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [req.body[0], req.body[1]])
 
     if (results.rowCount) {
       res.send (JSON.stringify(`Hello ${req.body[0]}!`))
@@ -34,6 +47,15 @@ app1.post("/login", async (req, res) => {
     else {
       res.json ({login : false})
     }
+  }
+  catch (error) {
+    console.error(error.message)
+  }
+})
+
+app1.post("/postEntry", async (req, res) => { 
+  try {
+    await pool.query('INSERT INTO posts (title, body, prodtype, dateposted) VALUES ($1, $2, $3, $4)', [req.body[0], req.body[1], req.body[2], req.body[3]])
   }
   catch (error) {
     console.error(error.message)

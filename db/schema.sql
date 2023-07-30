@@ -9,6 +9,6 @@ CREATE TABLE users (
 CREATE TABLE posts (
     title VARCHAR(100) PRIMARY KEY,
     body VARCHAR(1000),
-    cuisineType VARCHAR(100),
+    prodType VARCHAR(100),
     datePosted VARCHAR(100),
 )
