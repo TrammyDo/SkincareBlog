@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import Posts from '../components/Posts.js'
+import NavBar from '../components/NavBar.js';
 
 const Home = () => {
     const [posts, setPosts] = useState([])
@@ -27,14 +28,7 @@ const Home = () => {
     
     return (
         <div className='homepage'>
-            <header>
-                <div className="nav container">
-                    <a href="#" className="logo">FaceStuff</a>
-                    <Link to="/login" className='login'>Login</Link>
-                    <Link to="/postEntry">Create Post</Link>
-                </div>
-            </header>
-            
+            <NavBar/>
             <section className="home" id="home">
                 <div className="home-text container">
                     <h2 className="home-title">Trammy's Skincare Blog</h2>

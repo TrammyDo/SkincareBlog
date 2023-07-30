@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar.js';
 
 const Registration = () => { 
     const [username, setUsername] = useState('');
@@ -26,14 +26,19 @@ const Registration = () => {
 
     return (
         <form onSubmit={ handleSubmit }>
-            <h1>Create Account</h1>
-            <label htmlFor="username">Username</label>
-            <input value={username} onChange={(values) => setUsername(values.target.value)} type="username" placeholder="" id="username" name="username"></input>
-            <label htmlFor="email">Email</label>
-            <input value={email} onChange={(values) => setEmail(values.target.value)} type="email" placeholder="" id="email" name="email"></input>
-            <label htmlFor="password">Password</label>
-            <input value={pass} onChange={(values) => setPass(values.target.value)} type="password" placeholder="" id="password" name="password"></input>
-            <button type="submit">Create</button>
+            <NavBar/>
+            <div className='comment-entry'>
+                <br></br>
+                <h1>Create Account</h1>
+                <label htmlFor="username">Username</label>
+                <input value={username} onChange={(values) => setUsername(values.target.value)} type="username" placeholder="" id="username" name="username"></input>
+                <label htmlFor="email">Email</label>
+                <input value={email} onChange={(values) => setEmail(values.target.value)} type="email" placeholder="" id="email" name="email"></input>
+                <label htmlFor="password">Password</label>
+                <input value={pass} onChange={(values) => setPass(values.target.value)} type="password" placeholder="" id="password" name="password"></input>
+                <br></br>
+                <button type="submit">Create</button>
+            </div>
         </form>
     );
 }

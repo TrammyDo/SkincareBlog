@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import NavBar from '../components/NavBar.js';
 
 const PostEntry = () => {
     const [title, setTitle] = useState('');
@@ -24,17 +24,20 @@ const PostEntry = () => {
     
     return (
         <form onSubmit={ handleSubmit }>
-            <Link to="/" className='home'>Home</Link>
-            <h1>Create Post</h1>
-            <label htmlFor="title">Title</label>
-            <input value={title} onChange={(values) => setTitle(values.target.value)} placeholder="" id="title" name="title"></input>
-            <label htmlFor="postBody">Body</label>
-            <input value={postBody} onChange={(values) => setBody(values.target.value)} placeholder="" id="postBody" name="postBody"></input>
-            <label htmlFor="prodType">Product Type</label>
-            <input value={prodType} onChange={(values) => setProdType(values.target.value)} placeholder="" id="prodType" name="prodType"></input>
-            <label htmlFor="date">Date</label>
-            <input value={date} onChange={(values) => setDate(values.target.value)} placeholder="" id="date" name="date"></input>
-            <button type="submit">Create</button>
+            <NavBar/>
+            <div className="comment-entry">
+                <h1>Create Post</h1>
+                <label htmlFor="title">Title</label>
+                <input value={title} onChange={(values) => setTitle(values.target.value)} placeholder="" id="title" name="title"></input>
+                <label htmlFor="postBody">Body</label>
+                <input value={postBody} onChange={(values) => setBody(values.target.value)} placeholder="" id="postBody" name="postBody"></input>
+                <label htmlFor="prodType">Product Type</label>
+                <input value={prodType} onChange={(values) => setProdType(values.target.value)} placeholder="" id="prodType" name="prodType"></input>
+                <label htmlFor="date">Date</label>
+                <input value={date} onChange={(values) => setDate(values.target.value)} placeholder="" id="date" name="date"></input>
+                <br></br>
+                <button type="submit">Create</button>
+            </div>
         </form>
     );
   };
