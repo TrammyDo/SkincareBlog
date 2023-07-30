@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
+import Comments from './Comments.js';
 
 export default function PostsPage () {
     const location = useLocation();
@@ -24,6 +25,9 @@ export default function PostsPage () {
                 <section className="post-content post-container">
                     <h2 className="sub-heading">{post.title} Review</h2>
                     <p className="post-text">{post.body}</p>
+                </section>
+                <section className="comment-section">
+                    <Comments/>
                 </section>
             </div>
         );
