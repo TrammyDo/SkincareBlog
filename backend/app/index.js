@@ -69,6 +69,20 @@ app1.post("/addComment", async (req, res) => {
   }
 })
 
+app1.post("/getComments", async (req, res) => {
+  try {
+    let results = []
+
+    results = await pool.query('SELECT * FROM comments WHERE postid = $1', [req.body[0]])
+    res.send ({posts : results.rows})
+  }  
+  catch (e) {
+    console.log(e)
+  }
+})
+
+
+
 app1.listen(port, () => {  
   console.log(`Listening on port ${port}`)
 })
