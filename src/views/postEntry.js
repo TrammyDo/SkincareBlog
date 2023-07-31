@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from '../components/NavBar.js';
+import { v4 as uuidv4 } from 'uuid';
 
 const PostEntry = () => {
     const [title, setTitle] = useState('');
@@ -8,6 +9,7 @@ const PostEntry = () => {
     const [date, setDate] = useState('')
 
     const handleSubmit = async (values) => {
+        const postId = uuidv4();
         values.preventDefault();
         
         await fetch(`http://localhost:8080/postEntry`, {
@@ -15,7 +17,7 @@ const PostEntry = () => {
             headers: {
                 "Content-Type": "application/json",
             },
-            body: JSON.stringify([values.target[0].value, values.target[1].value, values.target[2].value, values.target[3].value]),
+            body: JSON.stringify([values.target[0].value, values.target[1].value, values.target[2].value, values.target[3].value, postId]),
         })
         .then(res => res.json())
         .then(resJson => {

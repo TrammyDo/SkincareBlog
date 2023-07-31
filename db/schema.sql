@@ -11,8 +11,10 @@ CREATE TABLE posts (
     body VARCHAR(1000),
     prodType VARCHAR(100),
     datePosted VARCHAR(100),
+    postId VARCHAR(100) UNIQUE
 )
 
 CREATE TABLE comments (
-    commentId VARCHAR(100) PRIMARY KEY UNIQUE
+    postId VARCHAR(100),
+    comment VARCHAR(1000)
 )

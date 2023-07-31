@@ -28,8 +28,6 @@ app1.get("/getPosts", async (req, res) => {
     let results = []
 
     results = await pool.query('SELECT * FROM posts')
-    
-    console.log(results.rows)
     res.send ({posts : results.rows})
   }  
   catch (e) {
@@ -59,6 +57,15 @@ app1.post("/postEntry", async (req, res) => {
   }
   catch (error) {
     console.error(error.message)
+  }
+})
+
+app1.post("/addComment", async (req, res) => {
+  try {
+    await pool.query('INSERT INTO comments (postid, comment) VALUES ($1, $2)', [req.body[0], req.body[1]])
+  }  
+  catch (e) {
+    console.log(e)
   }
 })
 

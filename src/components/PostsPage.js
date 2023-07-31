@@ -27,7 +27,7 @@ export default function PostsPage () {
                     <p className="post-text">{post.body}</p>
                 </section>
                 <section className="comment-section">
-                    <Comments/>
+                    <Comments post={post}/>
                 </section>
             </div>
         );
