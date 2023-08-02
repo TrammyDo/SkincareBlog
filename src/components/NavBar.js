@@ -6,8 +6,8 @@ export default function NavBar () {
         <header>
             <div className="nav container">
             <Link to="/" className="logo">FaceStuff</Link>
-            <Link to="/postEntry" className='login'>Create Post</Link>
-            <Link to="/login" className="login">Login</Link>
+            {sessionStorage.getItem("user") === "trammypoo" ? <Link to="/postEntry" className='login'>Create Post</Link> : null}
+            {sessionStorage.getItem("user") === null ? <Link to="/login" className="login">Login</Link> : `Hi ${sessionStorage.getItem("user")}`}
             </div>
         </header> 
     );  

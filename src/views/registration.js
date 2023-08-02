@@ -21,6 +21,9 @@ const Registration = () => {
             if (!resJson.value) {
                 window.alert("Username already taken, try again.")
             }
+            else {
+                window.location = '/'
+            }
         })
     }
 

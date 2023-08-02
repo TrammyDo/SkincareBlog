@@ -40,7 +40,7 @@ app1.post("/login", async (req, res) => {
     let results = await pool.query('SELECT * FROM users WHERE email = $1 AND password = $2', [req.body[0], req.body[1]])
 
     if (results.rowCount) {
-      res.send (JSON.stringify(`Hello ${req.body[0]}!`))
+      res.send ({user : results.rows})
     }
     else {
       res.json ({login : false})

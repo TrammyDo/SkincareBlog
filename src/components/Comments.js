@@ -47,15 +47,16 @@ export default function Comments (props) {
         <form onSubmit={ handleSubmit }>
             <h1>Comments ( つ•̀ω•́)つ</h1>
             <label htmlFor="comment"></label>
-            <input className='comment-input' value={comment} onChange={(values) => setComment(values.target.value)} placeholder="" id="comment" name="comment"></input>
+            {sessionStorage.getItem("user") !== null ? <input className='comment-input' value={comment} onChange={(values) => setComment(values.target.value)} placeholder="" id="comment" name="comment"></input> : null}
             <br></br>
             <br></br>
-            <button className='new-comment-btn' type='submit'>Add New Comment</button>
+            {sessionStorage.getItem("user") !== null ? <button className='new-comment-btn' type='submit'>Add New Comment</button>: null}
 
             {comments.map(comment => (
                 <>
                     <div className='post-box'>
                         <h2 className="category">{comment.comment}</h2>
+                        <br></br>
                     </div>
                 </>
             ))}

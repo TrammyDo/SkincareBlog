@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useLocation } from 'react-router-dom';
 import Comments from './Comments.js';
+import NavBar from '../components/NavBar.js';
 
 export default function PostsPage () {
     const location = useLocation();
@@ -12,8 +13,7 @@ export default function PostsPage () {
             <div>
                 <header>
                     <div className="nav container">
-                    <Link to="/" className="logo">FaceStuff</Link>
-                    <Link to="/login" className="login">Login</Link>
+                        <NavBar/>
                     </div>
                 </header>
                 <section className="post-header">

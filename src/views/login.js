@@ -1,4 +1,4 @@
-import React , { useState } from 'react';
+import React , { useState, Redirect } from 'react';
 import { Link } from 'react-router-dom';
 import NavBar from '../components/NavBar.js';
 
@@ -18,8 +18,12 @@ const Login = () => {
         })
         .then(res => res.json())
         .then(resJson => {
-            if (!resJson.value) {
+            if (!resJson) {
                 window.alert ("Incorrect email or password. Please try again.")
+            }
+            else {
+                sessionStorage.setItem("user", resJson.user[0].username)
+                window.location = '/'
             }
         })
     }
