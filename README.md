@@ -14,10 +14,4 @@ If the user is not logged in, they are unable to leave comments.
 ![image](https://github.com/TrammyDo/SkincareBlog/assets/101090414/685253dc-780e-4a14-ae1c-0e6bec3126b0)
 
 Thank you for checking out my project!   
-  ∧,,,∧
-
-  
-(  ̳• · • ̳)
-
-
-/    づ♡
+(ฅ^♡ﻌ♡^ฅ)
